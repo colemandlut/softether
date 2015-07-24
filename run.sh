@@ -7,6 +7,7 @@ sleep 10
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1 /adminhub:DEFAULT /CMD UserRadiusSet \* /ALIAS:
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1 /adminhub:DEFAULT /CMD SecureNatEnable
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1                   /CMD ServerCertSet /LOADCERT:$CERT_FILE /LOADKEY:$CERT_KEY
+/usr/local/vpnserver/vpncmd /SERVER 127.0.0.1                   /CMD IPsecEnable /L2TP:yes /L2TPRAW:no /ETHERIP:no /PSK:vpn /DEFAULTHUB:DEFAULT
 /usr/local/vpnserver/vpnserver stop
 
 /usr/local/vpnserver/vpnserver execsvc
