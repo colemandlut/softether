@@ -3,6 +3,10 @@ FROM centos:centos6
 MAINTAINER coleman <coleman_dlut@hotmail.com>
 
 ENV VERSION v4.17-9562-beta-2015.05.30
+ENV RADIUS_SERVER=
+ENV RADIUS_SECRET=
+ENV CERT_FILE=
+ENV CERT_KEY=
 WORKDIR /usr/local/vpnserver
 
 RUN yum -y update && \
@@ -16,6 +20,9 @@ RUN yum -y update && \
 
 EXPOSE 443/tcp 992/tcp 1194/tcp 1194/udp 5555/tcp 500/udp 4500/udp
 
-CMD /usr/local/vpnserver/vpnserver execsvc
+# Run
+ADD run.sh /opt/run.sh
+RUN chmod 700 /opt/run.sh
 
+CMD /opt/run.sh
 
