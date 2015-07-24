@@ -1,6 +1,7 @@
 #!/bin/bash
 
 /usr/local/vpnserver/vpnserver start
+sleep 10
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1 /adminhub:DEFAULT /CMD RadiusServerSet $RADIUS_SERVER:1812 /SECRET:$RADIUS_SECRET /RETRY_INTERVAL:500
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1 /adminhub:DEFAULT /CMD UserCreate \* /GROUP: /REALNAME: /NOTE:
 /usr/local/vpnserver/vpncmd /SERVER 127.0.0.1 /adminhub:DEFAULT /CMD UserRadiusSet \* /ALIAS:
